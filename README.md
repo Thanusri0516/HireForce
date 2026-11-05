@@ -2,7 +2,7 @@
 
 <img src="frontend/public/favicon.svg" alt="InterXAI Logo" width="80" height="80" />
 
-# HireForc
+# HireForce
 
 **AI-Powered Interview Automation Platform**
 
@@ -19,7 +19,7 @@
 
 ## Overview
 
-HireForc is an AI-powered interview automation platform designed to make technical hiring smarter, faster, and more scalable. It simulates real interview experiences by dynamically generating follow-up questions based on candidate responses, evaluating answers in real time using large language models, and maintaining a natural conversational flow throughout the entire interview process.
+HireForce is an AI-powered interview automation platform designed to make technical hiring smarter, faster, and more scalable. It simulates real interview experiences by dynamically generating follow-up questions based on candidate responses, evaluating answers in real time using large language models, and maintaining a natural conversational flow throughout the entire interview process.
 
 Organizations create fully customized interviews with domain-specific questions and DSA challenges. Candidates apply by submitting their resumes, which are automatically evaluated and scored by an LLM agent against the job requirements - all without manual intervention. To ensure interview integrity, every session is proctored by a two-tier webcam face-detection pipeline: a lightweight in-browser model gives the candidate instant feedback, while a standalone [vision service](#proctoring--the-vision-service) running a stronger detector (OpenCV YuNet) holds the authoritative verdict — backed by a heartbeat liveness check and stored evidence frames.
 

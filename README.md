@@ -2,7 +2,7 @@
 
 <img src="frontend/public/favicon.svg" alt="InterXAI Logo" width="80" height="80" />
 
-# InterXAI
+# HireForc
 
 **AI-Powered Interview Automation Platform**
 
@@ -19,7 +19,7 @@
 
 ## Overview
 
-InterXAI is an AI-powered interview automation platform designed to make technical hiring smarter, faster, and more scalable. It simulates real interview experiences by dynamically generating follow-up questions based on candidate responses, evaluating answers in real time using large language models, and maintaining a natural conversational flow throughout the entire interview process.
+HireForc is an AI-powered interview automation platform designed to make technical hiring smarter, faster, and more scalable. It simulates real interview experiences by dynamically generating follow-up questions based on candidate responses, evaluating answers in real time using large language models, and maintaining a natural conversational flow throughout the entire interview process.
 
 Organizations create fully customized interviews with domain-specific questions and DSA challenges. Candidates apply by submitting their resumes, which are automatically evaluated and scored by an LLM agent against the job requirements - all without manual intervention. To ensure interview integrity, every session is proctored by a two-tier webcam face-detection pipeline: a lightweight in-browser model gives the candidate instant feedback, while a standalone [vision service](#proctoring--the-vision-service) running a stronger detector (OpenCV YuNet) holds the authoritative verdict — backed by a heartbeat liveness check and stored evidence frames.
 
@@ -141,7 +141,7 @@ TaskIQ Worker (async):
 ## Project Structure
 
 ```
-InterXAI-re/
+HireForc-re/
 ├── backend/                    # FastAPI application
 │   ├── app/
 │   │   ├── ai/                 # LLM agents and prompt templates
@@ -356,7 +356,7 @@ FastAPI auto-generates interactive documentation:
 
 ## MCP Server
 
-InterXAI exposes a subset of its capabilities as [Model Context Protocol](https://modelcontextprotocol.io) tools, so AI agents can drive the platform directly. The server is **mounted on the FastAPI app** (not a separate service) and served over Streamable HTTP at `/mcp` — same origin and port as the REST API, started automatically with `uv run uvicorn app.main:app`.
+HireForce exposes a subset of its capabilities as [Model Context Protocol](https://modelcontextprotocol.io) tools, so AI agents can drive the platform directly. The server is **mounted on the FastAPI app** (not a separate service) and served over Streamable HTTP at `/mcp` — same origin and port as the REST API, started automatically with `uv run uvicorn app.main:app`.
 
 **Authentication reuses the platform JWT**, resource-server style (like GitHub's remote MCP server): every request to `/mcp` must carry an organization access token as `Authorization: Bearer <token>` — the same JWT issued by `/users/login`. Missing or invalid tokens get a `401` with a `WWW-Authenticate` hint; discovery metadata is served, unauthenticated, at `/.well-known/oauth-protected-resource` (RFC 9728). Each tool resolves the caller's organization from the token, so tools never take it as an argument.
 
